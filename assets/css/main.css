@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Questrial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+/* Color Variables */
+:root {
+  --primary-bg: #222831;
+  --secondary-bg: #393e46;
+  --primary-highlight: #dfd0b8;
+  --secondary-highlight: #948979;
+}
+
+/* Font Definitions */
+.theme-text-regular {
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.theme-text-bold {
+  font-family: "Questrial", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.theme-heading-regular {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.root-container {
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  overflow-y: hidden;
+}
+
+p {
+  font-weight: 200;
+  font-style: normal;
+  color: var(--primary-highlight);
+}
+* {
+  /* box-sizing: border-box;
+  margin: 0;
+  padding: 0; */
+  font-family: "Questrial", sans-serif;
+}
+
+button {
+  border: none;
+  width: auto;
+  border-radius: 4px;
+  text-align: center;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  font-weight: 600;
+  background-color: rgb(98, 171, 147);
+  color: aliceblue;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(79, 139, 119);
+  scale: 1.04;
+}
+
+button:active {
+  background-color: rgb(98, 171, 147);
+  scale: 0.96;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(98, 171, 147, 0.5);
+}
