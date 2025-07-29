@@ -14,7 +14,7 @@ Index
 | [Usage](#usage)                               | How to use the project                            |
 | [Building From Source](#building-from-source) | Instructions for building the project from source |
 
-#### Project Overview
+### Project Overview
 
 It was a regular summer afternoon and I found myself in a predcament situation.
 I was setting up my work repository and for that I had to setup a SSH key to be able to push my code to the remote work repository.
@@ -28,7 +28,7 @@ Hence, `this.ssh` was born.
 
 `this.ssh` is a simple SSH management tool that allows users to manage their SSH connections and configurations easily. It provides a user-friendly interface for adding, removing, and listing SSH hosts.
 
-#### Features - Roadmap
+### Features - Roadmap
 
 - Complete
 
@@ -41,15 +41,15 @@ Hence, `this.ssh` was born.
   - Create User/User Auth
   - Save your keys to the cloud with one click
 
-#### Installation
+### Installation
 
 Installation guide Will be updated soon once the first release is out.
 
-#### Usage
+### Usage
 
 Usage will be updated soon once the first release is out.
 
-#### Building From Source
+### Building From Source
 
 To build this.ssh from source, you will need to have the following libs installed:
 
@@ -91,7 +91,7 @@ Build the project:
 npm run tauri build
 ```
 
-##### Running the Project Locally
+#### Running the Project Locally
 
 To run and to test the project locally, you need to run both the Tauri and the NUXT development servers.
 Ideally I run one terminal and split it into two panes, one for each server (tmux), or tabs.
