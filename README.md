@@ -1,75 +1,60 @@
-# Nuxt Minimal Starter
+### Building From Source
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+To build this.ssh from source, you will need to have the following libs installed:
 
-## Setup
+- Node.js (v22.0.0 or later)
+- npm (v9.0.0 or later)
+- TypeScript (v5.0.0 or later)
+- Rust Compiler (v1.88.0 or later)
+- Cargo (v1.88.0 or later)
+- Tauri (v2.6.2, not tested on version v2.7.0 or later)
 
-Make sure to install dependencies:
+Clone the repository:
 
 ```bash
-# npm
+git clone git@github.com:dh00mk3tu/this.ssh.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd this.ssh
+```
+
+Change branch to `master`:
+Master branch has the latest stable code.
+
+```bash
+git checkout master
+```
+
+Install the dependencies:
+
+```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Build the project:
 
 ```bash
-# npm
+npm run tauri build
+```
+
+#### Running the Project Locally
+
+To run and to test the project locally, you need to run both the Tauri and the NUXT development servers.
+Ideally I run one terminal and split it into two panes, one for each server (tmux), or tabs.
+
+Start the Tauri development server:
+
+```bash
+cargo tauri dev
+```
+
+Start the NUXT development server:
+
+```bash
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The application will fire a native window and the application will work within that window only. The application will not work in a browser, it is a native application amd Tauri APIs do not work in a browser environment.
