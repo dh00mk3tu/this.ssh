@@ -58,3 +58,29 @@ npm run dev
 ```
 
 The application will fire a native window and the application will work within that window only. The application will not work in a browser, it is a native application amd Tauri APIs do not work in a browser environment.
+
+## Features
+
+### SSH Key Management
+
+- **View SSH Keys**: Scan and display all SSH keys in your `~/.ssh/` directory
+- **SSH Agent Integration**: Show which keys are currently loaded in your SSH agent
+- **Key Status**: Display whether each key is active (loaded) or inactive
+- **Copy Public Keys**: Copy public key content to clipboard for easy sharing
+
+### SSH Key Creation
+
+- **Create New Keys**: Generate new SSH keys directly from the application
+- **Multiple Key Types**: Support for RSA, Ed25519, and ECDSA key types
+- **Configurable Key Sizes**:
+  - RSA: 2048 or 4096 bits
+  - ECDSA: 256, 384, or 521 bits
+  - Ed25519: 256 bits (fixed)
+- **Optional Passphrase**: Add passphrase protection to your keys
+- **Smart Naming**: Automatic filename generation based on key type and email
+
+### Key Types Supported
+
+- **RSA**: Traditional RSA keys with configurable bit lengths
+- **Ed25519**: Modern, secure keys (recommended for new deployments)
+- **ECDSA**: Elliptic curve keys with various curve sizes

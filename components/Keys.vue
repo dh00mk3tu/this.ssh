@@ -111,7 +111,9 @@ const getLoadedSSHAgentKeys = async () => {
         loadedKeysState.value,
         "failed",
         "No SSH Agent keys found",
-        {}
+        {
+          keys: loadedKeys.value,
+        }
       );
     } else {
       useStateModifier(
@@ -135,4 +137,10 @@ const getLoadedSSHAgentKeys = async () => {
     error.value = err.message || "Failed to fetch SSH Agent keys";
   }
 };
+
+// Expose methods to parent component
+defineExpose({
+  fetchSSHKeys,
+  getLoadedSSHAgentKeys,
+});
 </script>

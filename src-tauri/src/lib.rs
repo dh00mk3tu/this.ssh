@@ -78,6 +78,62 @@ fn get_ssh_keys() -> Result<Vec<String>, String> {
     Ok(key_outputs)
 }
 
+#[tauri::command]
+fn create_ssh_key(email: String, key_type: String, key_size: u32, passphrase: Option<String>) -> Result<String, String> {
+    let ssh_dir = dirs::home_dir()
+        .map(|mut p| {
+            p.push(".ssh");
+            p
+        })
+        .ok_or("Could not find home directory")?;
+
+    // Create .ssh directory if it doesn't exist
+    if !ssh_dir.exists() {
+        fs::create_dir(&ssh_dir).map_err(|e| format!("Failed to create .ssh directory: {}", e))?;
+    }
+
+    // Generate filename based on key type and email
+    let filename = format!("id_{}_{}", key_type, email.split('@').next().unwrap_or("key"));
+    let key_path = ssh_dir.join(&filename);
+
+    // Check if key already exists
+    if key_path.exists() {
+        return Err(format!("SSH key '{}' already exists", filename));
+    }
+
+    // Build ssh-keygen command
+    let mut command = Command::new("ssh-keygen");
+    command
+        .arg("-t")
+        .arg(&key_type)
+        .arg("-b")
+        .arg(&key_size.to_string())
+        .arg("-C")
+        .arg(&email)
+        .arg("-f")
+        .arg(&key_path);
+
+    // Add passphrase if provided
+    if let Some(pass) = passphrase {
+        if !pass.trim().is_empty() {
+            command.arg("-N").arg(&pass);
+        } else {
+            command.arg("-N").arg("");
+        }
+    } else {
+        command.arg("-N").arg("");
+    }
+
+    // Execute the command
+    let output = command.output().map_err(|e| format!("Failed to run ssh-keygen: {}", e))?;
+
+    if output.status.success() {
+        Ok(format!("SSH key created successfully: {}", filename))
+    } else {
+        let stderr = String::from_utf8_lossy(&output.stderr).to_string();
+        Err(format!("Failed to create SSH key: {}", stderr))
+    }
+}
 
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -93,7 +149,7 @@ pub fn run() {
       }
       Ok(())
     })
-    .invoke_handler(tauri::generate_handler![get_ssh_keys, is_ssh_agent_running, get_loaded_ssh_agent_keys])
+    .invoke_handler(tauri::generate_handler![get_ssh_keys, is_ssh_agent_running, get_loaded_ssh_agent_keys, create_ssh_key])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
