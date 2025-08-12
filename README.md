@@ -30,13 +30,28 @@ Hence, `this.ssh` was born.
 
 ### Features - Roadmap
 
+| Features - Complete                | Release Date |
+| ---------------------------------- | ------------ |
+| List SSH Keys                      | 30/07/2025   |
+| Onload SSH Keys into the SSH agent | 30/07/2025   |
+| Create SSH Keys                    | 13/08/2025   |
+
+---
+
+| Features - Inprogress               | Release Date |
+| ----------------------------------- | ------------ |
+| Remove SSH Keys                     | TBR          |
+| Offload SSH Keys into the SSH agent | TBR          |
+| Create User/User Auth               | TBR          |
+| Save your keys to the cloud         | TBR          |
+
 - Complete
 
   - List SSH Keys
   - Offload/Onload SSH Keys into the SSH agent
+  - Create SSH Keys
 
 - In Progress
-  - Create SSH Keys
   - Remove SSH Keys
   - Create User/User Auth
   - Save your keys to the cloud with one click
