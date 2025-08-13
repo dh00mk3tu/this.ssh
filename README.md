@@ -45,17 +45,6 @@ Hence, `this.ssh` was born.
 | Create User/User Auth               | TBR          |
 | Save your keys to the cloud         | TBR          |
 
-- Complete
-
-  - List SSH Keys
-  - Offload/Onload SSH Keys into the SSH agent
-  - Create SSH Keys
-
-- In Progress
-  - Remove SSH Keys
-  - Create User/User Auth
-  - Save your keys to the cloud with one click
-
 ### Installation
 
 Installation guide Will be updated soon once the first release is out.
