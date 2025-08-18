@@ -56,14 +56,9 @@ const isRemoveModalOpen = ref(false);
 const copyPublicKey = (publicKey: string) => {
   copyButtonCTA.value = "Copied!";
   copiedToClipboard.value = true;
-  navigator.clipboard
-    .writeText(publicKey)
-    .then(() => {
-      console.log("Public key copied to clipboard");
-    })
-    .catch((err) => {
-      console.error("Failed to copy public key: ", err);
-    });
+  navigator.clipboard.writeText(publicKey).catch((err) => {
+    console.error("Failed to copy public key: ", err);
+  });
 
   setTimeout(() => {
     copyButtonCTA.value = "Copy Public Key";

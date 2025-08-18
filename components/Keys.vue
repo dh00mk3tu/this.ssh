@@ -87,9 +87,6 @@ const isThisKeyActive = (key: Key): boolean => {
 const formatKeys = (keys: SSHKeyInfo[]): any[] => {
   const isActive = false;
   return keys.map((key) => {
-    console.log("Parsing key:", key); // Debug log
-
-    // Handle error cases first
     if (
       key.key_info.startsWith("Error for") ||
       key.key_info.startsWith("Failed to run")
@@ -110,7 +107,6 @@ const formatKeys = (keys: SSHKeyInfo[]): any[] => {
 
     // Split by spaces
     const parts = key.key_info.split(" ");
-    console.log("Parts:", parts); // Debug log
 
     if (parts.length < 4) {
       return {
@@ -146,7 +142,6 @@ const formatKeys = (keys: SSHKeyInfo[]): any[] => {
       keyType,
       filename: key.filename,
     };
-    console.log("Parsed result:", result); // Debug log
     return result;
   });
 };
@@ -154,15 +149,12 @@ const formatKeys = (keys: SSHKeyInfo[]): any[] => {
 // Separate function for formatting loaded SSH agent keys
 const formatLoadedKeys = (keys: string[]): any[] => {
   return keys.map((key) => {
-    console.log("Parsing loaded key:", key); // Debug log
-
     // The ssh-add -l output format is different:
     // "256 SHA256:TIPy/ZP3JraYYuXYbnFNanxouYhl1Wmov4aJOWcw4x8 /path/to/key (ED25519)"
     // Format: [key_size] [hash] [path] (key_type)
 
     // Split by spaces
     const parts = key.split(" ");
-    console.log("Parts:", parts); // Debug log
 
     if (parts.length < 4) {
       return {
@@ -200,7 +192,6 @@ const formatLoadedKeys = (keys: string[]): any[] => {
       keyType,
       filename,
     };
-    console.log("Parsed loaded key result:", result); // Debug log
     return result;
   });
 };
@@ -210,9 +201,6 @@ const fetchSSHKeys = async () => {
   error.value = null;
   try {
     const result = await invoke<SSHKeyInfo[]>(commandList[0]);
-    console.log("Raw SSH keys result:", result);
-    console.log("Result type:", typeof result);
-    console.log("Result length:", result?.length);
 
     if (!result || !Array.isArray(result)) {
       console.error("Invalid result format:", result);
@@ -228,7 +216,6 @@ const fetchSSHKeys = async () => {
     }
 
     keys.value = formatKeys(result);
-    console.log("Formatted keys:", keys.value);
 
     if (keys.value.length === 0) {
       useStateModifier(keysState.value, "failed", "No SSH keys found", {});
@@ -261,7 +248,6 @@ const getLoadedSSHAgentKeys = async () => {
   error.value = null;
   try {
     const result = await invoke<string[]>(commandList[1]);
-    console.log("result", result);
 
     loadedKeys.value = formatLoadedKeys(result);
 

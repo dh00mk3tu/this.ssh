@@ -103,21 +103,18 @@ const confirmRemove = async () => {
   isRemoving.value = true;
 
   try {
-    // Use the filename field for key removal
+    // Using the filename field for key removal
     const keyFilename = props.keyDetails.filename;
 
     const result = await invoke<string>("remove_ssh_key", {
       keyFilename: keyFilename,
     });
 
-    console.log("Key removed:", result);
-
     // Emit success and close modal
     emit("key-removed");
     closeModal();
   } catch (error: any) {
     console.error("Failed to remove SSH key:", error);
-    // You could show an error message here if needed
   } finally {
     isRemoving.value = false;
   }
