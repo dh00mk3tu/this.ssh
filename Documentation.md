@@ -1,8 +1,8 @@
-# SSH Key Management Application Documentation
+# this.ssh Documentation
 
 ## Project Overview
 
-This is a desktop application built with **Tauri** (Rust backend + Vue.js frontend) that provides a user-friendly interface for managing SSH keys on your system. The application allows users to view, create, and remove SSH keys while providing real-time status information about loaded keys in the SSH agent.
+This is a desktop application built with **Tauri** (Rust backend + NUXT frontend) that provides a user-friendly interface for managing SSH keys on your system. The application allows users to view, create, and remove SSH keys while providing real-time status information about loaded keys in the SSH agent.
 
 ## Architecture
 
@@ -16,11 +16,11 @@ This is a desktop application built with **Tauri** (Rust backend + Vue.js fronte
   - SSH agent status monitoring
   - File system operations
 
-### Frontend (Vue.js)
+### Frontend (Nuxt)
 
-- **Framework**: Vue 3 with Composition API
+- **Framework**: Nuxt with Composition API
 - **Styling**: Tailwind CSS with custom CSS variables
-- **State Management**: Vue 3 reactive system with custom composables
+- **State Management**: Nuxt reactive system with custom composables
 - **Components**: Modular, reusable components for different UI elements
 
 ## Core Features
@@ -346,7 +346,7 @@ Enable debug mode in the application to see:
 ### Code Style
 
 - **Rust**: Follow Rust formatting guidelines
-- **Vue**: Use Composition API, TypeScript
+- **Vue/Nuxt**: Use Composition API, TypeScript
 - **CSS**: Tailwind classes with custom variables
 
 ### Testing
