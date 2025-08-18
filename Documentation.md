@@ -363,8 +363,8 @@ Enable debug mode in the application to see:
 
 ## License
 
-[Add your license information here]
+Apache-2.0 License
 
 ## Support
 
-[Add support contact information here]
+You can reach out to me on discord @dk3tm or email me at cyberhybird@hotmail.com
