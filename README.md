@@ -13,6 +13,7 @@ Index
 | [Installation](#installation)                 | Instructions on how to install the project        |
 | [Usage](#usage)                               | How to use the project                            |
 | [Building From Source](#building-from-source) | Instructions for building the project from source |
+| [Documentation](./Documentation.md)           | Initial Documentation                             |
 
 ### Project Overview
 
@@ -35,12 +36,13 @@ Hence, `this.ssh` was born.
 | List SSH Keys                      | 30/07/2025   |
 | Onload SSH Keys into the SSH agent | 30/07/2025   |
 | Create SSH Keys                    | 13/08/2025   |
+| Remove SSH Keys                    | 19/08/2025   |
+| Documentation - Initial Phase      | 19/08/2025   |
 
 ---
 
 | Features - Inprogress               | Release Date |
 | ----------------------------------- | ------------ |
-| Remove SSH Keys                     | TBR          |
 | Offload SSH Keys into the SSH agent | TBR          |
 | Create User/User Auth               | TBR          |
 | Save your keys to the cloud         | TBR          |
