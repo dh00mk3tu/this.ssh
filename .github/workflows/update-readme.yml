@@ -5,6 +5,9 @@ on:
     types: [published]
   workflow_dispatch: # allows manual run (for first-time setup)
 
+permissions:
+  contents: write
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
