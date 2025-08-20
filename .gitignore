@@ -3,3 +3,5 @@ node_modules
 assets
 components
 src-tauri
+.output/
+dist

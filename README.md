@@ -2,6 +2,8 @@
 
 ![this.ssh Banner](https://github.com/dh00mk3tu/this.ssh/blob/main/Images/this-banner.png)
 
+<center>![GitHub release (latest by date)](https://img.shields.io/github/v/release/dh00mk3tu/this.ssh)</center>
+
 ### Simple SSH Management Tool
 
 `main` branch is used for the intro, setup guide and LICENCE information.
