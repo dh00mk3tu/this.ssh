@@ -27,15 +27,17 @@ jobs:
 
       - name: Update README
         run: |
-          awk -v repl="$releases" '
+          # Build the markdown table with header
+          table="| Version | Date | Link |\n| ------- | ---- | ---- |\n$releases"
+
+          awk -v repl="$table" '
             /<!--RELEASES-LIST-->/ {
-              print
+              print "<!--RELEASES-LIST-->"
               print repl
-              found=1
               next
             }
             /<!--RELEASES-LIST-END-->/ {
-              print
+              print "<!--RELEASES-LIST-END-->"
               next
             }
             {print}
