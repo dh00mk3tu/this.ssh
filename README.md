@@ -7,6 +7,7 @@
 ### 🚀 Releases
 
 <!--RELEASES-LIST-->
+| release-v1.0.0 | 2025-08-20 | [View Release](https://github.com/dh00mk3tu/this.ssh/releases/tag/release-v1.0.0) |
 
 | Version | Date | Link |
 | ------- | ---- | ---- |
