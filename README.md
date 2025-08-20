@@ -116,4 +116,4 @@ Start the NUXT development server:
 npm run dev
 ```
 
-The application will fire a native window and the application will work within that window only. The application will not work in a browser, it is a native application amd Tauri APIs do not work in a browser environment.
+The application will fire a native window and the application will work within that window only. It'll will not work in a browser, it is native and Tauri APIs do not work in a browser environment.
